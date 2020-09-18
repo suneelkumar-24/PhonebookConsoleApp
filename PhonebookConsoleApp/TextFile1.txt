@@ -1,0 +1,71 @@
+﻿Console.WriteLine("Phonebook App");
+
+//            //  String connString= @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=phone;Integrated Security=True";
+
+//            String connString = ConfigurationManager.ConnectionStrings["dbConnString"].ConnectionString;
+
+//        SqlConnection conn = new SqlConnection(connString);
+
+//        String sqlQuery = "select * from user_data";
+
+//        SqlCommand command = new SqlCommand(sqlQuery, conn);
+//        conn.Open();
+//            //online mood
+//            SqlDataReader reader = command.ExecuteReader();
+           
+//            while(reader.Read())
+//            {
+//                Console.WriteLine(reader.GetValue(0) + "," + reader.GetValue(1));
+//            }
+//    conn.Close();
+
+
+//            //ofline mode
+//            SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, conn);
+//    conn.Open();
+//            DataTable data = new DataTable();
+//    adapter.Fill(data);
+//            //foreach (DataRow row in data.Rows)
+//            //{
+//            //    string ID = row["user_id"].ToString();
+//            //    string Name = row["user_name"].ToString();
+//            //    Console.WriteLine(ID + "," + Name);
+   
+//            //}
+
+
+//            //stored procedure
+//            SqlDataAdapter adapter2 = new SqlDataAdapter();
+//    //SqlCommand command2 = new SqlCommand("getAllUser", conn);
+//    //command2.CommandType = CommandType.StoredProcedure;
+
+//    //adapter2.SelectCommand = command2;
+//    //DataTable data2 = new DataTable();
+//    //adapter2.Fill(data2);
+//    //foreach (DataRow row in data2.Rows)
+//    //{
+//    //    string ID = row["user_id"].ToString();
+//    //    string Name = row["user_name"].ToString();
+//    //    Console.WriteLine(ID + "::" + Name);
+
+//    //}
+
+//    SqlCommand command3 = new SqlCommand("getUser", conn);
+//    command3.CommandType = CommandType.StoredProcedure;
+//            command3.Parameters.AddWithValue("@userID", 2);
+//            adapter2.SelectCommand = command3;
+//            DataTable data3 = new DataTable();
+//    adapter2.Fill(data3);
+
+//            foreach (DataRow row in data3.Rows)
+//            {
+//                string ID = row["user_id"].ToString();
+//    string Name = row["user_name"].ToString();
+//    Console.WriteLine(ID + "::" + Name);
+//            }
+
+
+//conn.Close();
+            
+
+

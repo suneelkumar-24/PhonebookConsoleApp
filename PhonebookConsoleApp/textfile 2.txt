@@ -1,0 +1,56 @@
+﻿Console.WriteLine("PhoneBook App");
+
+            String connString = ConfigurationManager.ConnectionStrings["dbConnString"].ToString();
+
+            SqlConnection conn = new SqlConnection(connString);
+
+            String sqlQuery = "Select * from user_data";
+            SqlCommand command = new SqlCommand(sqlQuery, conn);
+            //conn.Open();
+            //SqlDataReader reader = command.ExecuteReader();
+            //while(reader.Read())
+            //{
+            //    Console.WriteLine(reader.GetValue(0) + "," +reader.GetValue(1));
+            //}
+            //conn.Close();
+            //Console.ReadLine();
+
+
+            //SqlDataAdapter adapter1 = new SqlDataAdapter(sqlQuery,conn);
+            //conn.Open();
+            //DataTable data1 = new DataTable();
+            //adapter1.Fill(data1);
+            //foreach(DataRow row in data1.Rows)
+            //{
+            //    Console.WriteLine(row["user_id"].ToString()+","+row["user_name"].ToString());
+            //}
+            //conn.Close();
+
+
+            //SqlCommand command2 = new SqlCommand("getAllUser", conn);
+            //command2.CommandType = CommandType.StoredProcedure;
+
+            //SqlDataAdapter adapter2 = new SqlDataAdapter(command2);
+            //DataTable data2 = new DataTable();
+            //adapter2.Fill(data2);
+            //foreach (DataRow row in data2.Rows)
+            //{
+            //    Console.WriteLine(row["user_id"].ToString() + "::" + row["user_name"].ToString());
+            //}
+
+
+            
+            Console.WriteLine("Enter the number that you want to retrive");
+            int userid = Convert.ToInt32(Console.ReadLine());
+            SqlCommand command3 = new SqlCommand("getUser", conn);
+            command3.CommandType = CommandType.StoredProcedure;
+            command3.Parameters.AddWithValue("@userID", userid);
+            
+
+            SqlDataAdapter adapter3 = new SqlDataAdapter(command3);
+            DataTable data3 = new DataTable();
+            adapter3.Fill(data3);
+            foreach(DataRow row in data3.Rows)
+            {
+                Console.WriteLine(row["user_id"].ToString() + "->" + row["user_name"].ToString());
+            }
