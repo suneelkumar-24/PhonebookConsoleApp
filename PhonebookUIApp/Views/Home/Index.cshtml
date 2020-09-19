@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using PhonebookUIApp.Models
+@model UserModel
+
+<div class="main">
+    <div class="users">
+        <p>User List</p>
+        <ul class="usersList">
+            @foreach (UserData user in Model.Users)
+            {
+                <li>User ID: @user.UserId, User Name: @user.UserName</li>
+
+            }
+        </ul>
+    </div>
+
+    <div class="phonebook">
+        <p>phonebook</p>
+        @foreach (UserPhoneBookData phonebook in Model.PhoneBook)
+        {
+
+        <ul class="phonebooklist">
+            User Id: @phonebook.User.UserId, UserName: @phonebook.User.UserName
+            @foreach(UserData contact in phonebook.Contacts)
+            {
+                <li>Contact Name: @contact.UserName</li>
+            }
+
+        </ul>
+        }
+    </div>
+
+  
+
+</div>

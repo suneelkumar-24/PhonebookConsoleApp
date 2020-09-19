@@ -13,7 +13,7 @@ namespace PhonebookConsoleApp
             String sqlQuery = "select * from user_data";
            //  DataTable dt = manager.executeStoreProcedure("getAllUser");
             List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@userID", 2));
+            parameters.Add(new SqlParameter("@userID", 3));
 
             DataTable dt = manager.executeStoreProcedure("getUser", parameters);
 
@@ -21,7 +21,9 @@ namespace PhonebookConsoleApp
             {
                 Console.WriteLine(row["user_id"].ToString() + "----" + row["user_name"].ToString());
             }
+            sqlQuery = "insert into user_data(user_name) values ('Suneel'),('Kumar')";
 
+            
         }
     }
 }
