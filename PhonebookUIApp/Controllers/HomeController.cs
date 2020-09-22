@@ -87,5 +87,15 @@ namespace PhonebookUIApp.Controllers
 
                 return View(model);
             }
+
+
+
+        [HttpPost]
+        public ActionResult Create(UserModel data)
+        {
+            SQLDALManager manager = new SQLDALManager("dbConnKey");
+            manager.executeStoreProcedure("insertUser", new List<SqlParameter> { new SqlParameter("@userName", data.newUser.UserName) });
+            return RedirectToAction("Index");
+        }
     }
 }

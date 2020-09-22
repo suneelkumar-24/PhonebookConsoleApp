@@ -17,22 +17,21 @@
         </ul>
     </div>
 
-    <div class="phonebook">
-        <p>phonebook</p>
-        @foreach (UserPhoneBookData phonebook in Model.PhoneBook)
+    
+
+    <div class="action">
+        <h2>Create New User</h2>
+        @using (Html.BeginForm("Create", "Home", FormMethod.Post))
         {
-
-        <ul class="phonebooklist">
-            User Id: @phonebook.User.UserId, UserName: @phonebook.User.UserName
-            @foreach(UserData contact in phonebook.Contacts)
-            {
-                <li>Contact Name: @contact.UserName</li>
-            }
-
-        </ul>
+            @Html.LabelFor(m => m.newUser.UserName)
+            @Html.TextBoxFor(m => m.newUser.UserName)
+            <input type="submit" value="Submit"/>
         }
+        <h2>Update User</h2>
+        <h2>Delete User</h2>
     </div>
 
-  
+
+    
 
 </div>
